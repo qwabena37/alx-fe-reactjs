@@ -1,3 +1,4 @@
+import Counter from './components/Counter';
 import UserProfile from './components/UserProfile';
 import Header from './components/Header';
 import MainContent from './components/MainContent'; 
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+    <Counter />
     <Header />
      <MainContent />
      <UserProfile />
@@ -47,7 +49,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+      
+    <div>
+      <h1>My React App</h1>
+      <Counter />
+    </div>
+   </>
   )
 }
 
