@@ -1,30 +1,38 @@
-// src/Navbar.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.css';
+function Navbar() {
+  const location = useLocation();
 
-export default function Navbar() {
-  const navStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '12px 20px',
-    background: '#0f172a',
-    color: '#fff',
-    boxShadow: '0 2px 8px rgba(2,6,23,0.12)'
-  };
-  const brandStyle = { color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 18 };
-  const linksStyle = { display: 'flex', gap: 12, alignItems: 'center' };
-  const linkStyle = { color: '#e6eef8', textDecoration: 'none', padding: '8px 10px', borderRadius: 6 };
+  const linkStyle = (path) => ({
+    color: location.pathname === path ? '#ffcc00' : 'white',
+    textDecoration: 'none',
+    fontWeight: location.pathname === path ? 'bold' : 'normal',
+    padding: '8px 12px',
+    borderRadius: '8px',
+    transition: 'background 0.3s',
+  });
 
   return (
-    <nav style={navStyle}>
-      <Link to="/" style={brandStyle}>My Company</Link>
-      <div style={linksStyle}>
-        <Link to="/" style={linkStyle}>Home</Link>
-        <Link to="/about" style={linkStyle}>About</Link>
-        <Link to="/services" style={linkStyle}>Services</Link>
-        <Link to="/contact" style={linkStyle}>Contact</Link>
-      </div>
+    <nav
+      style={{
+        backgroundColor: '#222',
+        padding: '15px 30px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '25px',
+        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+      }}
+    >
+      <Link to="/" style={linkStyle('/')}>Home</Link>
+      <Link to="/about" style={linkStyle('/about')}>About</Link>
+      <Link to="/services" style={linkStyle('/services')}>Services</Link>
+      <Link to="/contact" style={linkStyle('/contact')}>Contact</Link>
     </nav>
   );
 }
+
+export default Navbar;
