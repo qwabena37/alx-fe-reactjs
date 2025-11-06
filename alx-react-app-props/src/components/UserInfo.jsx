@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import UserContext from './UserContext';
 
+/**"useContext", "UserContext", "react"**/
 function UserInfo() {
   const { name, email } = useContext(UserContext);
 
