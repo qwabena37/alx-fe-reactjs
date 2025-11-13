@@ -1,41 +1,29 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import RecipeList from './components/RecipeList';
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeDetails from './components/RecipeDetails';
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RecipeList from "./components/RecipeList";
+import RecipeDetails from "./components/RecipeDetails";
+import AddRecipeForm from "./components/AddRecipeForm";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link>
-        {/* Add navigation links as needed */}
-      </nav>
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center my-6">
+          🍲 Recipe Sharing App
+        </h1>
 
-      <Routes>
-        <Route path="/" element={
-          <>
-            <AddRecipeForm />
-            <RecipeList />
-          </>
-        } />
+        {/* ✅ Search bar appears on main page */}
+        <SearchBar />
 
-        {/* Route with dynamic param for recipe details */}
-        <Route 
-          path="/recipe/:id" 
-          element={<RecipeDetailsWrapper />} 
-        />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<RecipeList />} />
+          <Route path="/add" element={<AddRecipeForm />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
-
-// Helper component to extract id param and pass as prop
-import { useParams } from 'react-router-dom';
-
-const RecipeDetailsWrapper = () => {
-  const { id } = useParams();
-  const recipeId = Number(id); // assuming ids are numbers
-  return <RecipeDetails recipeId={recipeId} />;
-};
 
 export default App;
