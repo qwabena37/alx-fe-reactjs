@@ -1,4 +1,4 @@
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from '../store/recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
 import { useState } from 'react';

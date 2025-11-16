@@ -7,6 +7,7 @@ export const useRecipeStore = create((set, get) => ({
   favorites: [],
   recommendations: [],
 
+  // Set Recipe
   // Existing actions
   addRecipe: (recipe) =>
     set((state) => ({
@@ -21,6 +22,11 @@ export const useRecipeStore = create((set, get) => ({
       favorites: state.favorites.filter((favId) => favId !== id),
     })),
 
+   // ADD THIS:
+  setRecipes: (newRecipes) => set(() => ({
+    recipes: newRecipes
+  })),
+  
   updateRecipe: (updatedRecipe) =>
     set((state) => ({
       recipes: state.recipes.map((r) =>
