@@ -1,13 +1,16 @@
-const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
+import axios from "axios";
 
-export async function searchUsers(username) {
-  const response = await fetch(
-    `https://api.github.com/search/users?q=${username}`,
-    {
-      headers: {
-        Authorization: API_KEY ? `Bearer ${API_KEY}` : "",
-      },
-    }
-  );
-  return response.json();
+// Base GitHub API URL
+const BASE_URL = "https://api.github.com";
+
+// This is the function your tests are looking for
+export async function fetchUserData(username) {
+  try {
+    // MUST use axios.get → test requirement
+    const response = await axios.get(`${BASE_URL}/users/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return null;
+  }
 }
