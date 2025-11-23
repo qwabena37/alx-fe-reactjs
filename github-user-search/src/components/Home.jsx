@@ -1,4 +1,4 @@
-import Search from "./components/Search";
+import Search from "./Search";
 
 function Home() {
   const handleSearch = (query) => {
@@ -12,3 +12,5 @@ function Home() {
     </div>
   );
 }
+
+export default Home;
