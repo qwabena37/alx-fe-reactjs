@@ -1,6 +1,7 @@
 // src/components/HomePage.jsx
 import React, { useEffect, useState } from 'react';
 import data from '../data.json'; // bundler imports static json from src
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
