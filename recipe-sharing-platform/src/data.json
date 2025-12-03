@@ -11,7 +11,7 @@
     "1/2 cup Parmesan",
     "Black pepper"
   ],
-  "steps": [
+  "instructions": [
     "Boil the pasta in salted water.",
     "Fry the bacon until crispy.",
     "Mix eggs and cheese in a bowl.",
@@ -33,7 +33,7 @@
     "cream",
     "herbs"
   ],
-  "steps": [
+  "instructions": [
     "Heat the vegetable oil and butter.",
     "Add the tikka masala paste and peppers,",
     "Remove the lid, stir through the mango chutney",
