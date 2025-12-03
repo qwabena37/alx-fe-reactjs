@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data.json'; // bundler imports static json from src
 import { Link } from 'react-router-dom';
+import myImage from '../assets/chicken.PNG';
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
@@ -23,6 +24,7 @@ export default function HomePage() {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       >
         {recipes.map((r) => (
+            
           <article
             key={r.id}
             className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200"

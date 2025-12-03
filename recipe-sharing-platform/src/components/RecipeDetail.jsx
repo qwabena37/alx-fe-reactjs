@@ -39,7 +39,7 @@ export default function RecipeDetail() {
         </ul>
       </section>
 
-      {/* STEPS SECTION */}
+      {/* instructions*/}
       <section className="mt-8">
         <h2 className="text-2xl font-semibold mb-3">Cooking Instructions</h2>
 
