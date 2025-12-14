@@ -1,4 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import ProfileDetails from "./pages/ProfileDetails";
@@ -11,7 +16,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
 
       <Routes>
@@ -37,7 +42,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
