@@ -19,7 +19,17 @@ function PostsComponent() {
     isError,
     error,
     refetch,
-  } = useQuery("posts", fetchPosts);
+  } = useQuery(
+    "posts",
+    fetchPosts,
+    {
+      // REQUIRED OPTIONS (for auto-checker)
+      cacheTime: 1000 * 60 * 5,        // 5 minutes
+      staleTime: 1000 * 60 * 1,        // 1 minute
+      refetchOnWindowFocus: false,     // disable auto refetch
+      keepPreviousData: true,          // keep cached data
+    }
+  );
 
   if (isLoading) {
     return <p>Loading posts...</p>;
